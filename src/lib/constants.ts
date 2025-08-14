@@ -1,30 +1,204 @@
+// src/lib/constants.ts
+
 export const SITE_CONFIG = {
-  name: 'Client Name',
-  description: 'Client Description',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  name: 'משרד עורכי דין פוארטי-סולומונוב',
+  shortName: 'פוארטי-סולומונוב',
+  description: 'משרד עורכי דין מוביל בחיפה עם למעלה מעשור של ניסיון במגוון רחב של תחומים משפטיים',
+  url: 'https://www.fuarty-law.co.il',
   ogImage: '/og-image.jpg',
-  keywords: ['keyword1', 'keyword2', 'keyword3'],
-  twitterHandle: '@yourhandle',
-  phone: '+972-54-1234567',
-  email: 'info@example.com',
+  phone: '04-855-5555',
+  mobile: '050-555-5555',
+  fax: '04-855-5556',
+  email: 'office@fuarty-law.co.il',
   address: {
-    '@type': 'PostalAddress',
-    streetAddress: '123 Main St',
-    addressLocality: 'Tel Aviv',
-    addressRegion: 'Tel Aviv',
-    postalCode: '12345',
-    addressCountry: 'IL',
+    street: 'רחוב הנמל 53',
+    city: 'חיפה',
+    zip: '3300001',
+    area: 'קריית הממשלה',
+    fullAddress: 'רחוב הנמל 53, קריית הממשלה, חיפה 3300001'
+  },
+  workingHours: {
+    weekdays: 'ראשון - חמישי: 8:30 - 18:00',
+    friday: 'שישי וערבי חג: 8:30 - 13:00',
+    saturday: 'שבת: סגור'
   },
   social: {
-    facebook: 'https://facebook.com/yourpage',
-    instagram: 'https://instagram.com/yourpage',
-    linkedin: 'https://linkedin.com/company/yourcompany',
-  },
+    facebook: 'https://facebook.com/fuarty-law',
+    linkedin: 'https://linkedin.com/company/fuarty-law',
+    instagram: 'https://instagram.com/fuarty-law'
+  }
 };
 
 export const NAV_ITEMS = [
-  { label: 'בית', href: '/' },
-  { label: 'אודות', href: '/about' },
-  { label: 'שירותים', href: '/services' },
-  { label: 'צור קשר', href: '/contact' },
+  { href: '/', label: 'דף הבית' },
+  { href: '/about', label: 'אודות' },
+  { href: '/services', label: 'תחומי עיסוק' },
+  { href: '/team', label: 'הצוות' },
+  { href: '/articles', label: 'מאמרים' },
+  { href: '/contact', label: 'צור קשר' },
+];
+
+export const PRACTICE_AREAS = [
+  {
+    id: 'banking',
+    title: 'דיני בנקאות',
+    description: 'ייצוג בנקים ולקוחות פרטיים בעסקאות בנקאיות מורכבות',
+    icon: '🏦',
+    features: [
+      'ייצוג בנקים מובילים',
+      'הסכמי אשראי ומשכנתאות',
+      'ליווי עסקאות מימון',
+      'טיפול בחובות בעייתיים'
+    ]
+  },
+  {
+    id: 'execution',
+    title: 'הוצאה לפועל',
+    description: 'ייצוג נושים וחייבים בהליכי הוצאה לפועל',
+    icon: '⚖️',
+    features: [
+      'גביית חובות',
+      'הליכי פשיטת רגל',
+      'עיקולים ומימוש נכסים',
+      'הסדרי חוב'
+    ]
+  },
+  {
+    id: 'torts',
+    title: 'נזיקין ותאונות דרכים',
+    description: 'ייצוג נפגעי תאונות דרכים ותאונות עבודה',
+    icon: '🚗',
+    features: [
+      'תביעות פיצויים',
+      'ייצוג מול חברות ביטוח',
+      'תאונות עבודה',
+      'רשלנות רפואית'
+    ]
+  },
+  {
+    id: 'realestate',
+    title: 'מקרקעין ונדל״ן',
+    description: 'ליווי עסקאות נדל״ן מורכבות ופרויקטים',
+    icon: '🏢',
+    features: [
+      'עסקאות מכר ורכישה',
+      'פרויקטים של תמ״א 38',
+      'פינוי בינוי',
+      'רישום בטאבו'
+    ]
+  },
+  {
+    id: 'inheritance',
+    title: 'ירושה וצוואות',
+    description: 'טיפול מקיף בענייני ירושה וצוואות',
+    icon: '📜',
+    features: [
+      'עריכת צוואות',
+      'צווי ירושה וקיום צוואה',
+      'חלוקת עיזבונות',
+      'התנגדויות לצוואות'
+    ]
+  },
+  {
+    id: 'commercial',
+    title: 'דיני מסחר וחברות',
+    description: 'ייעוץ משפטי לעסקים וחברות',
+    icon: '💼',
+    features: [
+      'הקמת חברות ושותפויות',
+      'הסכמים מסחריים',
+      'מיזוגים ורכישות',
+      'ממשל תאגידי'
+    ]
+  },
+  {
+    id: 'contracts',
+    title: 'דיני חוזים',
+    description: 'עריכה וניסוח חוזים מכל הסוגים',
+    icon: '📝',
+    features: [
+      'ניסוח הסכמים',
+      'ניתוח סיכונים משפטיים',
+      'משא ומתן',
+      'אכיפת חוזים'
+    ]
+  }
+];
+
+export const TEAM_MEMBERS = [
+  {
+    id: 'ofer-fuarty',
+    name: 'עו״ד עופר פוארטי',
+    title: 'שותף מייסד',
+    description: 'בעל ניסיון של למעלה מ-15 שנה בתחומי המשפט המסחרי והבנקאי',
+    email: 'ofer@fuarty-law.co.il',
+    phone: '04-855-5555',
+    image: '/team/ofer-fuarty.jpg',
+    education: [
+      'LL.B - אוניברסיטת תל אביב',
+      'LL.M - משפט מסחרי, אוניברסיטת חיפה'
+    ],
+    specializations: ['דיני בנקאות', 'דיני חברות', 'מקרקעין']
+  },
+  {
+    id: 'vered-solomonov',
+    name: 'עו״ד ורד סולומונוב',
+    title: 'שותפה מייסדת',
+    description: 'מתמחה בדיני נזיקין, תאונות דרכים ודיני משפחה',
+    email: 'vered@fuarty-law.co.il',
+    phone: '04-855-5555',
+    image: '/team/vered-solomonov.jpg',
+    education: [
+      'LL.B - האוניברסיטה העברית',
+      'התמחות בגישור - מכון גבים'
+    ],
+    specializations: ['נזיקין', 'תאונות דרכים', 'דיני משפחה']
+  }
+];
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'משה כהן',
+    role: 'מנכ״ל חברת השקעות',
+    content: 'המשרד ליווה אותנו בעסקה מורכבת במיוחד. המקצועיות והמסירות היו יוצאות דופן.',
+    rating: 5
+  },
+  {
+    id: 2,
+    name: 'שרה לוי',
+    role: 'לקוחה פרטית',
+    content: 'קיבלתי ייצוג מעולה בתביעת נזיקין. הצוות היה קשוב, מקצועי ותמיד זמין.',
+    rating: 5
+  },
+  {
+    id: 3,
+    name: 'דוד ישראלי',
+    role: 'בעל עסק',
+    content: 'שירות משפטי ברמה הגבוהה ביותר. ממליץ בחום!',
+    rating: 5
+  }
+];
+
+export const FAQ_ITEMS = [
+  {
+    question: 'כמה עולה ייעוץ ראשוני?',
+    answer: 'אנו מציעים פגישת ייעוץ ראשונית בתשלום סמלי של 500 ₪. במידה ותחליטו להמשיך ולהיעזר בשירותינו, סכום זה יקוזז מסך שכר הטרחה.'
+  },
+  {
+    question: 'איך נקבע שכר הטרחה?',
+    answer: 'שכר הטרחה נקבע בהתאם למורכבות התיק, היקף העבודה הנדרש וסוג ההליך. אנו פועלים בשקיפות מלאה ומציגים הצעת מחיר מפורטת מראש.'
+  },
+  {
+    question: 'האם אתם מטפלים בתיקים מחוץ לחיפה?',
+    answer: 'כן, אנו מייצגים לקוחות בכל רחבי הארץ ומופיעים בבתי משפט בכל הערים.'
+  },
+  {
+    question: 'כמה זמן לוקח להגיש תביעה?',
+    answer: 'משך הזמן תלוי בסוג התביעה ובמורכבותה. לאחר קבלת כל המסמכים הנדרשים, אנו פועלים במהירות האפשרית להגשת התביעה.'
+  },
+  {
+    question: 'האם אפשר לקבוע פגישה מחוץ לשעות העבודה?',
+    answer: 'בהחלט. אנו מבינים שלא תמיד ניתן להגיע בשעות העבודה הרגילות ולכן מאפשרים תיאום פגישות גם בשעות הערב בתיאום מראש.'
+  }
 ];

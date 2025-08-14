@@ -8,88 +8,137 @@
     --foreground: 222.2 84% 4.9%;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-white text-gray-900 antialiased;
   }
 
-  /* Modern selection color */
-  ::selection {
-    @apply bg-primary-500/20 text-primary-900;
+  /* Typography Base */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
   }
 
-  /* שיפורים לעברית */
+  /* Selection */
+  ::selection {
+    @apply bg-primary-100 text-primary-900;
+  }
+
+  /* RTL Support */
   body[dir="rtl"] {
     font-family: var(--font-rubik), var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Modern focus styles */
+  /* Focus Styles */
   *:focus {
     @apply outline-none;
   }
   
   *:focus-visible {
-    @apply ring-2 ring-primary-500 ring-offset-2;
+    @apply ring-2 ring-primary-600 ring-offset-2;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
   }
 }
 
 @layer components {
+  /* Container */
   .container {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
+  /* Sections */
   .section {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .section-lg {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Headings */
+  .heading-primary {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 leading-tight;
   }
   
-  /* Modern gradient text */
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  .heading-secondary {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-primary-800 leading-tight;
   }
-  
-  /* Modern glass effect */
-  .glass {
-    @apply bg-white/80 backdrop-blur-lg border border-gray-200/50;
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-200;
   }
-  
-  /* Modern card hover */
+
+  .btn-primary {
+    @apply btn bg-primary-700 text-white hover:bg-primary-800 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-500 text-white hover:bg-secondary-600 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary-700 text-primary-700 hover:bg-primary-700 hover:text-white;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl border border-gray-200 overflow-hidden transition-all duration-300;
+  }
+
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply hover:-translate-y-1;
+  }
+
+  /* Form Elements */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 bg-white placeholder-gray-500 focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-all duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-700 to-secondary-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/90 backdrop-blur-md border border-white/20 shadow-xl;
   }
 }
 
-/* Animation utilities */
 @layer utilities {
-  .animate-in {
-    animation-name: animate-in;
-    animation-duration: var(--animation-duration, 200ms);
-    animation-fill-mode: both;
+  /* Hover Lift */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
   }
-  
-  .fade-in {
-    --animation-name: fade-in;
-  }
-  
-  .zoom-in-95 {
-    --animation-name: zoom-in-95;
-  }
-  
-  @keyframes animate-in {
-    from {
-      opacity: var(--starting-opacity, 0);
-      transform: translate(
-        var(--starting-translate-x, 0),
-        var(--starting-translate-y, 0)
-      ) scale(var(--starting-scale, 1));
-    }
-  }
-  
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes zoom-in-95 {
-    from { transform: scale(0.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
   }
 }
