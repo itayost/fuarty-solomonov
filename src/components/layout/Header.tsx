@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { href: '/about', label: 'אודות' },
   { href: '/services', label: 'תחומי עיסוק' },
   { href: '/team', label: 'הצוות' },
-  { href: '/articles', label: 'מאמרים' },
   { href: '/contact', label: 'צור קשר' },
 ];
 
